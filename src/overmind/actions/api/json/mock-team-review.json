@@ -1,0 +1,42 @@
+[
+    {
+        "firstName": "Andrew",
+        "lastName": "Dandy",
+        "preferredName": "Andy",
+        "jobTitle": "Project Manager",
+        "slug": "andrew-dandy-e6yr7uh3",
+        "profileImage": "https://app.keplerqa.xyz/files/interview-test/andrew.jpeg"
+    },
+    {
+        "firstName": "Kelsey",
+        "lastName": "Humperdink",
+        "preferredName": "Kelsey",
+        "jobTitle": "UI Designer",
+        "slug": "kelsey-humperdink-e6yr7uh3",
+        "profileImage": "https://app.keplerqa.xyz/files/interview-test/kelsey.jpeg"
+    },
+    {
+        "firstName": "Rachel",
+        "lastName": "Yugaslof",
+        "preferredName": "Rach",
+        "jobTitle": "Back-end Developer",
+        "slug": "rachel-yugaslof-e6yr7uh3",
+        "profileImage": "https://app.keplerqa.xyz/files/interview-test/rachel.jpeg"
+    },
+    {
+        "firstName": "James",
+        "lastName": "Hinney",
+        "preferredName": "Jamie",
+        "jobTitle": "Back-end Developer",
+        "slug": "jamie-hinney-e6yr7uh3",
+        "profileImage": "https://app.keplerqa.xyz/files/interview-test/james.jpeg"
+    },
+    {
+        "firstName": "George",
+        "lastName": "George",
+        "preferredName": "Georgy",
+        "jobTitle": "SCRUM Master",
+        "slug": "george-george-e6yr7uh3",
+        "profileImage": "https://app.keplerqa.xyz/files/interview-test/george.jpeg"
+    }
+]

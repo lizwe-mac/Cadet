@@ -1,0 +1,215 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-family: var(--body);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+}
+
+button,
+a.button {
+  display: inline-block;
+  line-height: 50px;
+  background: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 70px;
+  min-width: 200px;
+  padding: 0 20px;
+  font-family: var(--body);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--contrast-text);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    border-color: var(--contrast-text);
+  }
+
+  &.loading {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: loading;
+  }
+}
+
+// Donut Chart Styles
+
+.donut-flyout {
+  position: fixed;
+  padding: 10px 20px 15px 20px;
+  background-color: var(--cards);
+  pointer-events: none;
+  border-radius: 8px;
+  border: solid 2px transparent;
+  transform-origin: center left;
+  transform: scale(0.96);
+  opacity: 0;
+  animation: DonutFlyout cubic-bezier(0.455, 0.03, 0.515, 0.955) 300ms forwards;
+  text-align: center;
+}
+
+.donut-flyout h6.xLabel {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.donut-flyout.sunburst {
+  margin-left: -100px;
+  padding: 10px;
+  border-color: var(--borders_1);
+  padding-left: 15px;
+  z-index: 12;
+}
+
+.donut-flyout.sunburst i {
+  border-radius: 50%;
+  width: 10px !important;
+  height: 10px !important;
+  left: -6px !important;
+}
+
+.donut-flyout.sunburst strong {
+  display: inline-block;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: text-top;
+}
+
+.donut-flyout.transform {
+  transform: scale(0.96) translate(15px, -50%);
+  animation-name: DonutFlyoutTransform;
+}
+
+.donut-flyout.transform.reverse {
+  transform: scale(0.96) translate(calc(-100% - 15px), -50%);
+  animation-name: DonutFlyoutTransformReverse;
+}
+
+.donut-flyout span {
+  display: block;
+  color: var(--text);
+}
+
+.donut-flyout span.percentage {
+  font-size: 30px;
+  font-family: var(--heading);
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.donut-flyout span.label {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--body);
+}
+
+.donut-flyout span.previous {
+  font-size: 12px;
+  font-weight: normal;
+  font-family: var(--body);
+  line-height: 14px;
+  padding-left: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.donut-flyout span.previous.block {
+  display: block;
+  padding-left: 10px;
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.donut-flyout span.previous.block i {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.donut-flyout span.previous svg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 12px;
+  margin-top: -6px;
+  width: auto;
+}
+
+.donut-flyout span.previous.light {
+  color: var(--accent-3);
+  padding-left: 0;
+}
+
+.donut-flyout span.previous.light svg {
+  display: none;
+}
+
+.donut-flyout span.previous.up {
+  color: var(--lime);
+}
+
+.donut-flyout span.previous.up svg {
+  transform: rotate(180deg);
+}
+
+.donut-flyout span.previous.down {
+  color: var(--berry);
+}
+
+@keyframes DonutFlyout {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes DonutFlyoutTransform {
+  from {
+    transform: scale(0.96) translate(15px, -50%);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translate(15px, -50%);
+  }
+}
+
+@keyframes DonutFlyoutTransformReverse {
+  from {
+    transform: scale(0.96) translate(calc(-100% - 15px), -50%);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translate(calc(-100% - 15px), -50%);
+  }
+}
+

@@ -19,6 +19,7 @@ export const ReviewTeamList = styled.ul`
 
 export const ReviewTeamListItem = styled.li`
   padding: 10px 0;
+  
 `;
 
 export const ReviewListMemberCard = styled(Card)`
@@ -26,6 +27,7 @@ export const ReviewListMemberCard = styled(Card)`
   display: grid;
   align-items: center;
   grid-template-columns: 70px 1fr;
+  gap:20px;
 `;
 
 export const ReviewListMemberCardIcon = styled.figure<{ colour: ThemeColours }>`
@@ -38,12 +40,13 @@ export const ReviewListMemberCardIcon = styled.figure<{ colour: ThemeColours }>`
   border: solid 3px ${props => colourString(props.colour)};
 
   img {
+    width: 100%;
   }
 `;
 
 export const ReviewListMemberCardContent = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 

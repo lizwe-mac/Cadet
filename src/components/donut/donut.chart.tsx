@@ -1,11 +1,12 @@
 import React from 'react';
-import { Canvas, CanvasSleeve, DonutInner, DonutLegend, DonutLegendList, DonutLegendListItem, DonutWrapper } from './donut.styles';
+import { Canvas, CanvasSleeve, DonutInner, DonutLegend, DonutLegendList, DonutLegendListItem, DonutWrapper, DonutSide, DonutSideText } from './donut.styles';
 import { handleMouseEnter } from './donut.functions';
 import { IDonutProps, IDonutSliceProps } from './donut.models';
 import * as math from './donut.math';
 import classNames from 'classnames';
 import { PropsWithChildrenOfType } from '../../models/faux-child';
 import { colourString } from '../helpers';
+import { randomColours } from '../../theme/colours';
 
 export function Donut(props: PropsWithChildrenOfType<IDonutProps, IDonutSliceProps>): JSX.Element {
   // Coerces the react children into an array. We need
@@ -18,6 +19,24 @@ export function Donut(props: PropsWithChildrenOfType<IDonutProps, IDonutSlicePro
   const { parts, total } = math.calculateDonutSlices(children);
   const characterLengthOfTotal = total.toString().length;
   const characterLengthOfLabel = props.label.toString().length;
+
+  const text = <div id="text">
+    <DonutSideText>
+      {props.showTotal && (
+        <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
+          <h6 style={{ fontWeight: 'light', fontFamily: 'var(--heading)', margin:'0', padding:'0' }} >Skill score:</h6>
+          <h5 style={{ fontWeight: 'bold', fontFamily: 'var(--heading)', color:`${randomColours[8]}`, fontSize:`${characterLengthOfLabel > 20 ? 30 : 35}`, margin:'0', padding:'0' }}>
+            {Math.round(total/1000 * 100)} %
+          </h5>
+        </div>
+      )}
+
+      <h5 style={{ fontWeight: 'bold', fontFamily: 'var(--body)', fontSize:`${characterLengthOfLabel > 20 ? 30 : 35}` }}>
+        
+        {props.label}
+      </h5>
+    </DonutSideText>
+  </div>;
 
   if (!children.length) {
     return (
@@ -47,17 +66,7 @@ export function Donut(props: PropsWithChildrenOfType<IDonutProps, IDonutSlicePro
                 return <path key={i} fill={`var(--${part.colour})`} d={part.commands} transform={`rotate(${part.offset})`} onMouseEnter={e => props.showTooltips && handleMouseEnter(e, part)} />;
               })}
 
-              <g id="text" textAnchor="middle" fill="var(--text)">
-                {props.showTotal && (
-                  <text y={characterLengthOfTotal <= 3 ? 52 : 54} x={50} fontSize={characterLengthOfTotal <= 3 ? 18 : 14} style={{ fontWeight: 'bold', fontFamily: 'var(--heading)' }}>
-                    {total}
-                  </text>
-                )}
-
-                <text y={props.showTotal ? 64 : 53} x={50} fontSize={characterLengthOfLabel > 20 ? 5 : 6} style={{ fontWeight: 'normal', fontFamily: 'var(--body)' }}>
-                  {props.label}
-                </text>
-              </g>
+              
             </Canvas>
           ) : (
             <Canvas fill="none" viewBox="0 0 100 100">
@@ -81,6 +90,9 @@ export function Donut(props: PropsWithChildrenOfType<IDonutProps, IDonutSlicePro
           </DonutLegendList>
         </DonutLegend>
       </DonutInner>
+      <DonutSide>
+        {children.length > 1 ? text : ''}
+      </DonutSide>
     </DonutWrapper>
   );
 }

@@ -5,7 +5,7 @@ import { useAppActions, useAppState } from '../../overmind';
 import { BottomFooter, Page } from '../../theme/page';
 import { ReviewListMemberCard, ReviewListMemberCardContent, ReviewListMemberCardIcon, ReviewTeamList, ReviewTeamListItem, ReviewTeamWrapper } from './review-team.styles';
 import * as typography from '../../theme/typography';
-import { filteredGraphColours } from '../../theme/colours';
+import { filteredGraphColours, accent2Colours } from '../../theme/colours';
 
 export function ReviewTeamPage(): JSX.Element {
   const { user } = useAppState();
@@ -44,6 +44,9 @@ export function ReviewTeamPage(): JSX.Element {
                     <typography.Heading5>
                       {member.firstName} {member.lastName}
                     </typography.Heading5>
+                    <typography.Caption1 colour={accent2Colours[0]}>
+                      {member.jobTitle}
+                    </typography.Caption1>
                   </ReviewListMemberCardContent>
                 </ReviewListMemberCard>
               </ReviewTeamListItem>
@@ -53,7 +56,7 @@ export function ReviewTeamPage(): JSX.Element {
       </ReviewTeamWrapper>
 
       <BottomFooter>
-        <a className="button">Continue</a>
+        <a href='/analysis/skills-gap-report' className="button">Continue</a>
       </BottomFooter>
     </Page>
   );

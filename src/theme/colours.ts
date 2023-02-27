@@ -1,6 +1,7 @@
 export type PrimaryColours = 'primary' | 'primary_1' | 'primary_2';
 export type SecondaryColours = 'secondary' | 'secondary_1' | 'secondary_2';
 export type Accent2Colours = 'accent-2' | 'accent-2_1' | 'accent-2_2';
+export const accent2Colours = ['accent-2', 'accent-2-1', 'accent-2-2'] as const;
 export type Accent3Colours = 'accent-3' | 'accent-3_1' | 'accent-3_2';
 export type BackgroundColours = 'background' | 'background_1' | 'background_2';
 export type CardColours = 'cards' | 'cards_1' | 'cards_2';

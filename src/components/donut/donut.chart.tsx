@@ -25,16 +25,16 @@ export function Donut(props: PropsWithChildrenOfType<IDonutProps, IDonutSlicePro
       {props.showTotal && (
         <div style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
           <h6 style={{ fontWeight: 'light', fontFamily: 'var(--heading)', margin:'0', padding:'0' }} >Skill score:</h6>
-          <h5 style={{ fontWeight: 'bold', fontFamily: 'var(--heading)', color:`${randomColours[8]}`, fontSize:`${characterLengthOfLabel > 20 ? 30 : 35}`, margin:'0', padding:'0' }}>
+          <h3 style={{ fontWeight: 'bold', fontFamily: 'var(--heading)', color:`${randomColours[8]}`, fontSize:`${characterLengthOfLabel > 20 ? 30 : 35}`, margin:'0', padding:'0' }}>
             {Math.round(total/1000 * 100)} %
-          </h5>
+          </h3>
         </div>
       )}
 
-      <h5 style={{ fontWeight: 'bold', fontFamily: 'var(--body)', fontSize:`${characterLengthOfLabel > 20 ? 30 : 35}` }}>
+      <h3 style={{ fontWeight: 'bold', fontFamily: 'var(--body)', fontSize:`${characterLengthOfLabel > 20 ? 30 : 35}` }}>
         
         {props.label}
-      </h5>
+      </h3>
     </DonutSideText>
   </div>;
 
